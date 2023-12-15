@@ -106,7 +106,7 @@ if ($Functions)
 #region Protection
 # The mandatory checks. If you want to disable a warning message about whether the preset file was customized, remove the "-Warning" argument
 # Обязательные проверки. Чтобы выключить предупреждение о необходимости настройки пресет-файла, удалите аргумент "-Warning"
-InitialActions -Warning
+# InitialActions -Warning
 
 # Enable script logging. Log will be recorded into the script folder. To stop logging just close console or type "Stop-Transcript"
 # Включить логирование работы скрипта. Лог будет записываться в папку скрипта. Чтобы остановить логгирование, закройте консоль или наберите "Stop-Transcript"
@@ -197,11 +197,11 @@ WindowsWelcomeExperience -Hide
 
 # Get tips and suggestions when I use Windows (default value)
 # Получать советы и предложения при использованию Windows (значение по умолчанию)
-WindowsTips -Enable
+# WindowsTips -Enable
 
 # Do not get tips and suggestions when I use Windows
 # Не получать советы и предложения при использованию Windows
-# WindowsTips -Disable
+WindowsTips -Disable
 
 # Hide from me suggested content in the Settings app
 # Скрывать рекомендуемое содержимое в приложении "Параметры"
@@ -343,19 +343,19 @@ RecycleBinDeleteConfirmation -Enable
 
 # Hide recently used files in Quick access
 # Скрыть недавно использовавшиеся файлы на панели быстрого доступа
-QuickAccessRecentFiles -Hide
+# QuickAccessRecentFiles -Hide
 
 # Show recently used files in Quick access (default value)
 # Показать недавно использовавшиеся файлы на панели быстрого доступа (значение по умолчанию)
-# QuickAccessRecentFiles -Show
+QuickAccessRecentFiles -Show
 
 # Hide frequently used folders in Quick access
 # Скрыть недавно используемые папки на панели быстрого доступа
-QuickAccessFrequentFolders -Hide
+# QuickAccessFrequentFolders -Hide
 
 # Show frequently used folders in Quick access (default value)
 # Показать часто используемые папки на панели быстрого доступа (значение по умолчанию)
-# QuickAccessFrequentFolders -Show
+QuickAccessFrequentFolders -Show
 
 # Set the taskbar alignment to the center (default value)
 # Установить выравнивание панели задач по центру (значение по умолчанию)
@@ -491,19 +491,19 @@ ShortcutsSuffix -Disable
 
 # Use the Print screen button to open screen snipping
 # Использовать кнопку PRINT SCREEN, чтобы запустить функцию создания фрагмента экрана
-PrtScnSnippingTool -Enable
+# PrtScnSnippingTool -Enable
 
 # Do not use the Print screen button to open screen snipping (default value)
 # Не использовать кнопку PRINT SCREEN, чтобы запустить функцию создания фрагмента экрана (значение по умолчанию)
-# PrtScnSnippingTool -Disable
+PrtScnSnippingTool -Disable
 
 # Let me use a different input method for each app window
 # Позволить выбирать метод ввода для каждого окна
-AppsLanguageSwitch -Enable
+# AppsLanguageSwitch -Enable
 
 # Do not use a different input method for each app window (default value)
 # Не использовать метод ввода для каждого окна (значение по умолчанию)
-# AppsLanguageSwitch -Disable
+AppsLanguageSwitch -Disable
 
 # When I grab a windows's title bar and shake it, minimize all other windows
 # При захвате заголовка окна и встряхивании сворачиваются все остальные окна
@@ -568,11 +568,11 @@ StorageSense -Enable
 
 # Run Storage Sense every month
 # Запускать Контроль памяти каждый месяц
-StorageSenseFrequency -Month
+# StorageSenseFrequency -Month
 
 # Run Storage Sense during low free disk space (default value)
 # Запускать Контроль памяти, когда остается мало место на диске (значение по умолчанию)
-# StorageSenseFrequency -Default
+StorageSenseFrequency -Default
 
 # Turn on automatic cleaning up temporary system and app files (default value)
 # Автоматически очищать временные файлы системы и приложений (значение по умолчанию)
@@ -617,11 +617,11 @@ BSoDStopError -Enable
 
 # Choose when to be notified about changes to your computer: never notify
 # Настройка уведомления об изменении параметров компьютера: никогда не уведомлять
-AdminApprovalMode -Never
+# AdminApprovalMode -Never
 
 # Choose when to be notified about changes to your computer: notify me only when apps try to make changes to my computer (default value)
 # Настройка уведомления об изменении параметров компьютера: уведомлять меня только при попытках приложений внести изменения в компьютер (значение по умолчанию)
-# AdminApprovalMode -Default
+AdminApprovalMode -Default
 
 # Turn on access to mapped drives from app running with elevated permissions with Admin Approval Mode enabled
 # Включить доступ к сетевым дискам при включенном режиме одобрения администратором при доступе из программ, запущенных с повышенными правами
@@ -641,11 +641,11 @@ DeliveryOptimization -Disable
 
 # Do not let Windows manage my default printer
 # Не разрешать Windows управлять принтером, используемым по умолчанию
-WindowsManageDefaultPrinter -Disable
+# WindowsManageDefaultPrinter -Disable
 
 # Let Windows manage my default printer (default value)
 # Разрешать Windows управлять принтером, используемым по умолчанию (значение по умолчанию)
-# WindowsManageDefaultPrinter -Enable
+WindowsManageDefaultPrinter -Enable
 
 <#
 	Disable the Windows features using the pop-up dialog box
@@ -726,11 +726,11 @@ IPv6Component -Disable
 
 # Override for default input method: English
 # Переопределить метод ввода по умолчанию: английский
-InputMethod -English
+# InputMethod -English
 
 # Override for default input method: use language list (default value)
 # Переопределить метод ввода по умолчанию: использовать список языков (значение по умолчанию)
-# InputMethod -Default
+InputMethod -Default
 
 <#
 	Change user folders location to the root of any drive using the interactive menu
@@ -741,7 +741,7 @@ InputMethod -English
 	Пользовательские файлы и папки не будут перемещены в новое расположение. Переместите их вручную
 	По умолчанию они располагаются в папке %USERPROFILE%
 #>
-Set-UserShellFolderLocation -Root
+# Set-UserShellFolderLocation -Root
 
 <#
 	Select folders for user folders location manually using a folder browser dialog
@@ -782,11 +782,11 @@ LatestInstalled.NET -Enable
 	Функция будет применена только в случае, если в пресете настроено удаление приложения OneDrive или приложение уже удалено,
 	иначе в OneDrive ломается функционал резервного копирования для папок "Рабочий стол" и "Изображения"
 #>
-WinPrtScrFolder -Desktop
+# WinPrtScrFolder -Desktop
 
 # Save screenshots by pressing Win+PrtScr in the Pictures folder (default value)
 # Cохранять скриншоты по нажатию Win+PrtScr в папку "Изображения" (значение по умолчанию)
-# WinPrtScrFolder -Default
+WinPrtScrFolder -Default
 
 <#
 	Run troubleshooter automatically, then notify me
@@ -795,7 +795,7 @@ WinPrtScrFolder -Desktop
 	Автоматически запускать средства устранения неполадок, а затем уведомлять
 	Чтобы заработала данная функция, уровень сбора диагностических данных ОС будет установлен на "Необязательные диагностические данные" и включится создание отчетов об ошибках Windows
 #>
-RecommendedTroubleshooting -Automatically
+# RecommendedTroubleshooting -Automatically
 
 <#
 	Ask me before running troubleshooter (default value)
@@ -804,7 +804,7 @@ RecommendedTroubleshooting -Automatically
 	Спрашивать перед запуском средств устранения неполадок (значение по умолчанию)
 	Чтобы заработала данная функция, уровень сбора диагностических данных ОС будет установлен на "Необязательные диагностические данные" и включится создание отчетов об ошибках Windows
 #>
-# RecommendedTroubleshooting -Default
+RecommendedTroubleshooting -Default
 
 # Launch folder windows in a separate process
 # Запускать окна с папками в отдельном процессе
@@ -872,11 +872,11 @@ ThumbnailCacheRemoval -Disable
 
 # Automatically saving my restartable apps and restart them when I sign back in
 # Автоматически сохранять мои перезапускаемые приложения из системы и перезапускать их при повторном входе
-SaveRestartableApps -Enable
+# SaveRestartableApps -Enable
 
 # Turn off automatically saving my restartable apps and restart them when I sign back in (default value)
 # Выключить автоматическое сохранение моих перезапускаемых приложений из системы и перезапускать их при повторном входе (значение по умолчанию)
-# SaveRestartableApps -Disable
+SaveRestartableApps -Disable
 
 # Enable "Network Discovery" and "File and Printers Sharing" for workgroup networks
 # Включить сетевое обнаружение и общий доступ к файлам и принтерам для рабочих групп
@@ -896,19 +896,19 @@ RestartNotification -Show
 
 # Restart as soon as possible to finish updating
 # Перезапустить устройство как можно быстрее, чтобы завершить обновление
-RestartDeviceAfterUpdate -Enable
+# RestartDeviceAfterUpdate -Enable
 
 # Don't restart as soon as possible to finish updating (default value)
 # Не перезапускать устройство как можно быстрее, чтобы завершить обновление (значение по умолчанию)
-# RestartDeviceAfterUpdate -Disable
+RestartDeviceAfterUpdate -Disable
 
 # Automatically adjust active hours for me based on daily usage
 # Автоматически изменять период активности для этого устройства на основе действий
-ActiveHours -Automatically
+# ActiveHours -Automatically
 
 # Manually adjust active hours for me based on daily usage (default value)
 # Вручную изменять период активности для этого устройства на основе действий (значение по умолчанию)
-# ActiveHours -Manually
+ActiveHours -Manually
 
 # Do not get Windows updates as soon as they're available for your device (default value)
 # Не получать последние обновления, как только они будут доступны (значение по умолчанию)
@@ -968,7 +968,7 @@ InstallDotNetRuntimes
 # Enable proxying only blocked sites from the unified registry of Roskomnadzor. The function is applicable for Russia only
 # Включить проксирование только заблокированных сайтов из единого реестра Роскомнадзора. Функция применима только для России
 # https://antizapret.prostovpn.org
-RKNBypass -Enable
+# RKNBypass -Enable
 
 # Disable proxying only blocked sites from the unified registry of Roskomnadzor (default value)
 # Выключить проксирование только заблокированных сайтов из единого реестра Роскомнадзора (значение по умолчанию)
@@ -1004,7 +1004,7 @@ SATADrivesRemovableMedia -Disable
 	Установить подсистему Windows для Linux (WSL), последний пакет обновления ядра Linux и дистрибутив Linux, используя всплывающую форму
 	Параметр "При обновлении Windows получать обновления для других продуктов Майкрософт" будет включен автоматически в Центре обновлении Windows, чтобы получать обновления ядра
 #>
-# Install-WSL
+Install-WSL
 #endregion WSL
 
 #region Start menu
@@ -1111,7 +1111,7 @@ GPUScheduling -Enable
 	Создать задание "Windows Cleanup" по очистке неиспользуемых файлов и обновлений Windows в Планировщике заданий.
 	Задание выполняется каждые 30 дней. Необходимо включить Windows Script Host для того, чтобы работала функция
 #>
-CleanupTask -Register
+# CleanupTask -Register
 
 # Delete the "Windows Cleanup" and "Windows Cleanup Notification" scheduled tasks for cleaning up Windows unused files and updates
 # Удалить задания "Windows Cleanup" и "Windows Cleanup Notification" по очистке неиспользуемых файлов и обновлений Windows из Планировщика заданий
@@ -1124,7 +1124,7 @@ CleanupTask -Register
 	Создать задание "SoftwareDistribution" по очистке папки %SystemRoot%\SoftwareDistribution\Download в Планировщике заданий
 	Задание будет ждать, пока служба обновлений Windows не закончит работу. Задание выполняется каждые 90 дней. Необходимо включить Windows Script Host для того, чтобы работала функция
 #>
-SoftwareDistributionTask -Register
+# SoftwareDistributionTask -Register
 
 # Delete the "SoftwareDistribution" scheduled task for cleaning up the %SystemRoot%\SoftwareDistribution\Download folder
 # Удалить задание "SoftwareDistribution" по очистке папки %SystemRoot%\SoftwareDistribution\Download из Планировщика заданий
@@ -1137,7 +1137,7 @@ SoftwareDistributionTask -Register
 	Создать задание "Temp" в Планировщике заданий по очистке папки %TEMP%
 	Удаляться будут только файлы старше одного дня. Задание выполняется каждые 60 дней. Необходимо включить Windows Script Host для того, чтобы работала функция
 #>
-TempTask -Register
+# TempTask -Register
 
 # Delete the "Temp" scheduled task for cleaning up the %TEMP% folder
 # Удалить задание "Temp" по очистке папки %TEMP% из Планировщика заданий
@@ -1221,19 +1221,19 @@ PowerShellScriptsLogging -Enable
 
 # Microsoft Defender SmartScreen doesn't marks downloaded files from the Internet as unsafe
 # Microsoft Defender SmartScreen не помечает скачанные файлы из интернета как небезопасные
-AppsSmartScreen -Disable
+# AppsSmartScreen -Disable
 
 # Microsoft Defender SmartScreen marks downloaded files from the Internet as unsafe (default value)
 # Microsoft Defender SmartScreen помечает скачанные файлы из интернета как небезопасные (значение по умолчанию)
-# AppsSmartScreen -Enable
+AppsSmartScreen -Enable
 
 # Disable the Attachment Manager marking files that have been downloaded from the Internet as unsafe
 # Выключить проверку Диспетчером вложений файлов, скачанных из интернета, как небезопасные
-SaveZoneInformation -Disable
+# SaveZoneInformation -Disable
 
 # Enable the Attachment Manager marking files that have been downloaded from the Internet as unsafe (default value)
 # Включить проверку Диспетчера вложений файлов, скачанных из интернета как небезопасные (значение по умолчанию)
-# SaveZoneInformation -Enable
+SaveZoneInformation -Enable
 
 # Disable Windows Script Host. Blocks WSH from executing .js and .vbs files
 # Отключить Windows Script Host. Блокирует запуск файлов .js и .vbs
@@ -1258,7 +1258,7 @@ SaveZoneInformation -Disable
 	Включить DNS-over-HTTPS для IPv4
 	Действительные IPv4-адреса: 1.0.0.1, 1.1.1.1, 149.112.112.112, 8.8.4.4, 8.8.8.8, 9.9.9.9
 #>
-DNSoverHTTPS -Enable -PrimaryDNS 1.0.0.1 -SecondaryDNS 1.1.1.1
+# DNSoverHTTPS -Enable -PrimaryDNS 1.0.0.1 -SecondaryDNS 1.1.1.1
 
 # Disable DNS-over-HTTPS for IPv4 (default value)
 # Выключить DNS-over-HTTPS для IPv4 (значение по умолчанию)
@@ -1296,67 +1296,67 @@ CABInstallContext -Show
 
 # Show the "Run as different user" item to the .exe filename extensions context menu
 # Отобразить пункт "Запуск от имени другого пользователя" в контекстное меню .exe файлов
-RunAsDifferentUserContext -Show
+# RunAsDifferentUserContext -Show
 
 # Hide the "Run as different user" item from the .exe filename extensions context menu (default value)
 # Скрыть пункт "Запуск от имени другого пользователя" из контекстное меню .exe файлов (значение по умолчанию)
-# RunAsDifferentUserContext -Hide
+RunAsDifferentUserContext -Hide
 
 # Hide the "Cast to Device" item from the media files and folders context menu
 # Скрыть пункт "Передать на устройство" из контекстного меню медиа-файлов и папок
-CastToDeviceContext -Hide
+# CastToDeviceContext -Hide
 
 # Show the "Cast to Device" item in the media files and folders context menu (default value)
 # Отобразить пункт "Передать на устройство" в контекстном меню медиа-файлов и папок (значение по умолчанию)
-# CastToDeviceContext -Show
+CastToDeviceContext -Show
 
 # Hide the "Share" item from the context menu
 # Скрыть пункт "Отправить" (поделиться) из контекстного меню
-ShareContext -Hide
+# ShareContext -Hide
 
 # Show the "Share" item in the context menu (default value)
 # Отобразить пункт "Отправить" (поделиться) в контекстном меню (значение по умолчанию)
-# ShareContext -Show
+ShareContext -Show
 
 # Hide the "Edit with Clipchamp" item from the media files context menu
 # Скрыть пункт "Редактировать в Climpchamp" из контекстного меню
-EditWithClipchampContext -Hide
+# EditWithClipchampContext -Hide
 
 # Show the "Edit with Clipchamp" item in the media files context menu (default value)
 # Отобразить пункт "Редактировать в Climpchamp" в контекстном меню (значение по умолчанию)
-# EditWithClipchampContext -Show
+EditWithClipchampContext -Show
 
 # Hide the "Print" item from the .bat and .cmd context menu
 # Скрыть пункт "Печать" из контекстного меню .bat и .cmd файлов
-PrintCMDContext -Hide
+# PrintCMDContext -Hide
 
 # Show the "Print" item in the .bat and .cmd context menu (default value)
 # Отобразить пункт "Печать" в контекстном меню .bat и .cmd файлов (значение по умолчанию)
-# PrintCMDContext -Show
+PrintCMDContext -Show
 
 # Hide the "Include in Library" item from the folders and drives context menu
 # Скрыть пункт "Добавить в библиотеку" из контекстного меню папок и дисков
-IncludeInLibraryContext -Hide
+# IncludeInLibraryContext -Hide
 
 # Show the "Include in Library" item in the folders and drives context menu (default value)
 # Отобразить пункт "Добавить в библиотеку" в контекстном меню папок и дисков (значение по умолчанию)
-# IncludeInLibraryContext -Show
+IncludeInLibraryContext -Show
 
 # Hide the "Send to" item from the folders context menu
 # Скрыть пункт "Отправить" из контекстного меню папок
-SendToContext -Hide
+# SendToContext -Hide
 
 # Show the "Send to" item in the folders context menu (default value)
 # Отобразить пункт "Отправить" в контекстном меню папок (значение по умолчанию)
-# SendToContext -Show
+SendToContext -Show
 
 # Hide the "Compressed (zipped) Folder" item from the "New" context menu
 # Скрыть пункт "Сжатая ZIP-папка" из контекстного меню "Создать"
-CompressedFolderNewContext -Hide
+# CompressedFolderNewContext -Hide
 
 # Show the "Compressed (zipped) Folder" item to the "New" context menu (default value)
 # Отобразить пункт "Сжатая ZIP-папка" в контекстном меню "Создать" (значение по умолчанию)
-# CompressedFolderNewContext -Show
+CompressedFolderNewContext -Show
 
 # Enable the "Open", "Print", and "Edit" context menu items for more than 15 items selected
 # Включить элементы контекстного меню "Открыть", "Изменить" и "Печать" при выделении более 15 элементов
@@ -1384,19 +1384,19 @@ OpenWindowsTerminalContext -Show
 
 # Open Windows Terminal in context menu as administrator by default
 # Открывать Windows Terminal из контекстного меню от имени администратора по умолчанию
-OpenWindowsTerminalAdminContext -Enable
+# OpenWindowsTerminalAdminContext -Enable
 
 # Do not open Windows Terminal in context menu as administrator by default (default value)
 # Не открывать Windows Terminal из контекстного меню от имени администратора по умолчанию (значение по умолчанию)
-# OpenWindowsTerminalAdminContext -Disable
+OpenWindowsTerminalAdminContext -Disable
 
 # Disable the Windows 10 context menu style (default value)
 # Отключить стиль контекстного меню из Windows 10 (значение по умолчанию)
-Windows10ContextMenu -Disable
+# Windows10ContextMenu -Disable
 
 # Enable the Windows 10 context menu style
 # Включить стиль контекстного меню из Windows 10
-# Windows10ContextMenu -Enable
+Windows10ContextMenu -Enable
 #endregion Context menu
 
 #region Update Policies
