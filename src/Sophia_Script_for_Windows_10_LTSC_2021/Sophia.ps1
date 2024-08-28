@@ -2,18 +2,17 @@
 	.SYNOPSIS
 	Default preset file for "Sophia Script for Windows 10 LTSC 2021"
 
-	Version: v5.17.8
-	Date: 08.12.2023
+	Version: v5.18.9
+	Date: 16.08.2024
 
-	Copyright (c) 2014—2024 farag
-	Copyright (c) 2019—2024 farag & Inestic
+	Copyright (c) 2014—2024 farag, Inestic & lowl1f3
 
 	Thanks to all https://forum.ru-board.com members involved
 
 	.DESCRIPTION
 	Place the "#" char before function if you don't want to run it
 	Remove the "#" char before function if you want to run it
-	Every tweak in the preset file has its' corresponding function to restore the default settings
+	Every tweak in the preset file has its corresponding function to restore the default settings
 
 	.EXAMPLE Run the whole script
 	.\Sophia.ps1
@@ -27,7 +26,6 @@
 	.NOTES
 	Supported Windows 10 version
 	Version: 21H2
-	Build: 19044.3803+
 	Edition: Enterprise LTSC 2021
 	Architecture: x64
 
@@ -48,13 +46,14 @@
 
 	.NOTES
 	https://forum.ru-board.com/topic.cgi?forum=62&topic=30617#15
-	https://habr.com/company/skillfactory/blog/553800/
-	https://forums.mydigitallife.net/threads/powershell-windows-10-sophia-script.81675/
+	https://habr.com/companies/skillfactory/articles/553800/
+	https://forums.mydigitallife.net/threads/powershell-sophia-script-for-windows-10-windows-11-5-17-8-6-5-8-x64-2023.81675/
 	https://www.reddit.com/r/PowerShell/comments/go2n5v/powershell_script_setup_windows_10/
 
 	.LINK Authors
 	https://github.com/farag2
 	https://github.com/Inestic
+	https://github.com/lowl1f3
 #>
 
 #Requires -RunAsAdministrator
@@ -70,12 +69,25 @@ param
 
 Clear-Host
 
-$Host.UI.RawUI.WindowTitle = "Sophia Script for Windows 10 LTSC 2021 v5.17.8 | Made with $([System.Char]::ConvertFromUtf32(0x1F497)) of Windows | $([System.Char]0x00A9) farag & Inestic, 2014$([System.Char]0x2013)2024"
+$Host.UI.RawUI.WindowTitle = "Sophia Script for Windows 10 LTSC 2021 v5.18.9 | Made with $([System.Char]::ConvertFromUtf32(0x1F497)) of Windows | $([System.Char]0x00A9) farag, Inestic & lowl1f3, 2014$([System.Char]0x2013)2024"
 
 Remove-Module -Name Sophia -Force -ErrorAction Ignore
-Import-Module -Name $PSScriptRoot\Manifest\Sophia.psd1 -PassThru -Force
-
 Import-LocalizedData -BindingVariable Global:Localization -BaseDirectory $PSScriptRoot\Localizations -FileName Sophia
+
+# Check whether script is not running via PowerShell (x86)
+try
+{
+	Import-Module -Name $PSScriptRoot\Manifest\Sophia.psd1 -PassThru -Force -ErrorAction Stop
+}
+catch [System.InvalidOperationException]
+{
+	Write-Warning -Message $Localization.PowerShellx86Warning
+
+	Write-Verbose -Message "https://t.me/sophia_chat" -Verbose
+	Write-Verbose -Message "https://discord.gg/sSryhaEv79" -Verbose
+
+	exit
+}
 
 <#
 	.SYNOPSIS
@@ -199,11 +211,11 @@ TailoredExperiences -Disable
 # Разрешите корпорации Майкософт использовать ваши диагностические данные для предоставления вам персонализированных советов, рекламы и рекомендаций, чтобы улучшить работу со службами Майкрософт (значение по умолчанию)
 # TailoredExperiences -Enable
 
-# Disable Bing search in the Start Menu
+# Disable Bing search in Start Menu
 # Отключить в меню "Пуск" поиск через Bing
 BingSearch -Disable
 
-# Enable Bing search in the Start Menu (default value)
+# Enable Bing search in Start Menu (default value)
 # Включить поиск через Bing в меню "Пуск" (значение по умолчанию)
 # BingSearch -Enable
 #endregion Privacy & Telemetry
@@ -529,14 +541,6 @@ Hibernation -Disable
 # Включить режим гибернации (значение по умолчанию)
 # Hibernation -Enable
 
-# Change the %TEMP% environment variable path to %SystemDrive%\Temp
-# Изменить путь переменной среды для %TEMP% на %SystemDrive%\Temp
-# TempFolder -SystemDrive
-
-# Change %TEMP% environment variable path to %LOCALAPPDATA%\Temp (default value)
-# Изменить путь переменной среды для %TEMP% на %LOCALAPPDATA%\Temp (значение по умолчанию)
-# TempFolder -Default
-
 # Disable the Windows 260 characters path limit
 # Отключить ограничение Windows на 260 символов в пути
 Win32LongPathLimit -Disable
@@ -549,7 +553,7 @@ Win32LongPathLimit -Disable
 # Отображать код Stop-ошибки при появлении BSoD
 BSoDStopError -Enable
 
-# Do not Stop error code when BSoD occurs (default value)
+# Do not display stop error code when BSoD occurs (default value)
 # Не отображать код Stop-ошибки при появлении BSoD (значение по умолчанию)
 # BSoDStopError -Disable
 
@@ -619,6 +623,30 @@ UpdateMicrosoftProducts -Enable
 # При обновлении Windows не получать обновления для других продуктов Майкрософт (значение по умолчанию)
 # UpdateMicrosoftProducts -Disable
 
+# Notify me when a restart is required to finish updating
+# Уведомлять меня о необходимости перезагрузки для завершения обновления
+RestartNotification -Show
+
+# Do not notify me when a restart is required to finish updating (default value)
+# Не yведомлять меня о необходимости перезагрузки для завершения обновления (значение по умолчанию)
+# RestartNotification -Hide
+
+# Restart as soon as possible to finish updating
+# Перезапустить устройство как можно быстрее, чтобы завершить обновление
+RestartDeviceAfterUpdate -Enable
+
+# Don't restart as soon as possible to finish updating (default value)
+# Не перезапускать устройство как можно быстрее, чтобы завершить обновление (значение по умолчанию)
+# RestartDeviceAfterUpdate -Disable
+
+# Automatically adjust active hours for me based on daily usage
+# Автоматически изменять период активности для этого устройства на основе действий
+ActiveHours -Automatically
+
+# Manually adjust active hours for me based on daily usage (default value)
+# Вручную изменять период активности для этого устройства на основе действий (значение по умолчанию)
+# ActiveHours -Manually
+
 # Set power plan on "High performance". It isn't recommended to turn on for laptops
 # Установить схему управления питанием на "Высокая производительность". Не рекомендуется включать на ноутбуках
 PowerPlan -High
@@ -672,7 +700,7 @@ InputMethod -English
 
 <#
 	Change user folders location to the root of any drive using the interactive menu
-	User files or folders won't me moved to a new location. Move them manually
+	User files or folders won't be moved to a new location. Move them manually
 	They're located in the %USERPROFILE% folder by default
 
 	Переместить пользовательские папки в корень любого диска на выбор с помощью интерактивного меню
@@ -683,7 +711,7 @@ Set-UserShellFolderLocation -Root
 
 <#
 	Select folders for user folders location manually using a folder browser dialog
-	User files or folders won't me moved to a new location. Move them manually
+	User files or folders won't be moved to a new location. Move them manually
 	They're located in the %USERPROFILE% folder by default
 
 	Выбрать папки для расположения пользовательских папок вручную, используя диалог "Обзор папок"
@@ -694,7 +722,7 @@ Set-UserShellFolderLocation -Root
 
 <#
 	Change user folders location to the default values
-	User files or folders won't me moved to the new location. Move them manually
+	User files or folders won't be moved to the new location. Move them manually
 	They're located in the %USERPROFILE% folder by default
 
 	Изменить расположение пользовательских папок на значения по умолчанию
@@ -712,7 +740,7 @@ LatestInstalled.NET -Enable
 # LatestInstalled.NET -Disable
 
 # Save screenshots by pressing Win+PrtScr on the Desktop
-# Сохранять скриншоты по нажатию Win+PrtScr на рабочий столе
+# Сохранять скриншоты по нажатию Win+PrtScr на рабочий стол
 WinPrtScrFolder -Desktop
 
 # Save screenshots by pressing Win+PrtScr in the Pictures folder (default value)
@@ -721,7 +749,7 @@ WinPrtScrFolder -Desktop
 
 <#
 	Run troubleshooter automatically, then notify me
-	In order this feature to work the OS level of diagnostic data gathering will be set to "Optional diagnostic data", and the error reporting feature will be turned on
+	In order this feature to work Windows level of diagnostic data gathering will be set to "Optional diagnostic data", and the error reporting feature will be turned on
 
 	Автоматически запускать средства устранения неполадок, а затем уведомлять
 	Чтобы заработала данная функция, уровень сбора диагностических данных ОС будет установлен на "Необязательные диагностические данные" и включится создание отчетов об ошибках Windows
@@ -730,7 +758,7 @@ RecommendedTroubleshooting -Automatically
 
 <#
 	Ask me before running troubleshooter (default value)
-	In order this feature to work the OS level of diagnostic data gathering will be set to "Optional diagnostic data"
+	In order this feature to work Windows level of diagnostic data gathering will be set to "Optional diagnostic data"
 
 	Спрашивать перед запуском средств устранения неполадок (значение по умолчанию)
 	Чтобы заработала данная функция, уровень сбора диагностических данных ОС будет установлен на "Необязательные диагностические данные" и включится создание отчетов об ошибках Windows
@@ -817,30 +845,6 @@ NetworkDiscovery -Enable
 # Выключить сетевое обнаружение и общий доступ к файлам и принтерам для рабочих групп (значение по умолчанию)
 # NetworkDiscovery -Disable
 
-# Show a notification when your PC requires a restart to finish updating
-# Показывать уведомление, когда компьютеру требуется перезагрузка для завершения обновления
-RestartNotification -Show
-
-# Do not show a notification when your PC requires a restart to finish updating (default value)
-# Не показывать уведомление, когда компьютеру требуется перезагрузка для завершения обновления (значение по умолчанию)
-# RestartNotification -Hide
-
-# Restart this device as soon as possible when a restart is required to install an update
-# Перезапускать это устройство как можно быстрее, если для установки обновления требуется перезагрузка
-RestartDeviceAfterUpdate -Enable
-
-# Do not restart this device as soon as possible when a restart is required to install an update (default value)
-# Не перезапускать это устройство как можно быстрее, если для установки обновления требуется перезагрузка (значение по умолчанию)
-# RestartDeviceAfterUpdate -Disable
-
-# Automatically adjust active hours for me based on daily usage
-# Автоматически изменять период активности для этого устройства на основе действий
-ActiveHours -Automatically
-
-# Manually adjust active hours for me based on daily usage (default value)
-# Вручную изменять период активности для этого устройства на основе действий (значение по умолчанию)
-# ActiveHours -Manually
-
 <#
 	Register app, calculate hash, and associate with an extension with the "How do you want to open this" pop-up hidden
 	Зарегистрировать приложение, вычислить хэш и ассоциировать его с расширением без всплывающего окна "Каким образом вы хотите открыть этот файл?"
@@ -873,12 +877,12 @@ ActiveHours -Automatically
 InstallVCRedist
 
 <#
-	Install the latest .NET Desktop Runtime 6, 7 (x86/x64)
-	Установить последнюю версию .NET Desktop Runtime 6, 7 (x86/x64)
+	Install the latest .NET Desktop Runtime 6, 8 x64
+	Установить последнюю версию .NET Desktop Runtime 6, 8 x64
 
 	https://dotnet.microsoft.com/en-us/download/dotnet
 #>
-InstallDotNetRuntimes
+InstallDotNetRuntimes -Runtimes NET6x64, NET8x64
 
 # Enable proxying only blocked sites from the unified registry of Roskomnadzor. The function is applicable for Russia only
 # Включить проксирование только заблокированных сайтов из единого реестра Роскомнадзора. Функция применима только для России
@@ -890,7 +894,7 @@ RKNBypass -Enable
 # https://antizapret.prostovpn.org
 # RKNBypass -Disable
 
-# List Microsoft Edge channels to prevent desktop shortcut creation upon its' update
+# List Microsoft Edge channels to prevent desktop shortcut creation upon its update
 # Перечислите каналы Microsoft Edge для предотвращения создания ярлыков на рабочем столе после его обновления
 PreventEdgeShortcutCreation -Channels Stable, Beta, Dev, Canary
 
@@ -905,6 +909,14 @@ SATADrivesRemovableMedia -Disable
 # Show up all internal SATA drives as removeable media in the taskbar notification area (default value)
 # Отображать все внутренние SATA-диски как съемные носители в области уведомлений на панели задач (значение по умолчанию)
 # SATADrivesRemovableMedia -Default
+
+# Back up the system registry to %SystemRoot%\System32\config\RegBack folder when PC restarts and create a RegIdleBackup in the Task Scheduler task to manage subsequent backups
+# Создавать копии реестра при перезагрузки ПК и создавать задание RegIdleBackup в Планировщике задания для управления последующими резервными копиями
+# RegistryBackup -Enable
+
+# Do not back up the system registry to %SystemRoot%\System32\config\RegBack folder (default value)
+# Не создавать копии реестра при перезагрузки ПК (значение по умолчанию)
+# RegistryBackup -Disable
 #endregion System
 
 #region WSL
@@ -919,19 +931,19 @@ SATADrivesRemovableMedia -Disable
 #endregion WSL
 
 #region Start menu
-# Hide recently added apps in the Start menu
+# Hide recently added apps in Start menu
 # Скрывать недавно добавленные приложения в меню "Пуск"
 RecentlyAddedApps -Hide
 
-# Show recently added apps in the Start menu (default value)
+# Show recently added apps in Start menu (default value)
 # Показывать недавно добавленные приложения в меню "Пуск" (значение по умолчанию)
 # RecentlyAddedApps -Show
 
-# Hide app suggestions in the Start menu
+# Hide app suggestions in Start menu
 # Скрывать рекомендации в меню "Пуск"
 AppSuggestions -Hide
 
-# Show app suggestions in the Start menu (default value)
+# Show app suggestions in Start menu (default value)
 # Показывать рекомендации в меню "Пуск" (значение по умолчанию)
 # AppSuggestions -Show
 
@@ -1030,13 +1042,8 @@ PUAppsDetection -Enable
 # Выключить обнаружение потенциально нежелательных приложений и блокировать их (значение по умолчанию)
 # PUAppsDetection -Disable
 
-<#
-	Enable sandboxing for Microsoft Defender
-	There is a bug in KVM with QEMU: enabling this function causes VM to freeze up during the loading phase of Windows
-
-	Включить песочницу для Microsoft Defender
-	В KVM с QEMU присутствует баг: включение этой функции приводит ВМ к зависанию во время загрузки Windows
-#>
+# Enable sandboxing for Microsoft Defender
+# Включить песочницу для Microsoft Defender
 DefenderSandbox -Enable
 
 # Disable sandboxing for Microsoft Defender (default value)
@@ -1051,34 +1058,8 @@ DismissMSAccount
 # Отклонить предложение Microsoft Defender в "Безопасность Windows" включить фильтр SmartScreen для Microsoft Edge
 DismissSmartScreenFilter
 
-# Enable events auditing generated when a process is created (starts)
-# Включить аудит событий, возникающих при создании или запуске процесса
-AuditProcess -Enable
-
-# Disable events auditing generated when a process is created (starts) (default value)
-# Выключить аудит событий, возникающих при создании или запуске процесса (значение по умолчанию)
-# AuditProcess -Disable
-
-<#
-	Include command line in process creation events
-	In order this feature to work events auditing (ProcessAudit -Enable) will be enabled
-
-	Включать командную строку в событиях создания процесса
-	Для того, чтобы работал данный функционал, будет включен аудит событий (AuditProcess -Enable)
-#>
-CommandLineProcessAudit -Enable
-
-# Do not include command line in process creation events (default value)
-# Не включать командную строку в событиях создания процесса (значение по умолчанию)
-# CommandLineProcessAudit -Disable
-
-<#
-	Create the "Process Creation" сustom view in the Event Viewer to log executed processes and their arguments
-	In order this feature to work events auditing (AuditProcess -Enable) and command line (CommandLineProcessAudit -Enable) in process creation events will be enabled
-
-	Создать настраиваемое представление "Создание процесса" в Просмотре событий для журналирования запускаемых процессов и их аргументов
-	Для того, чтобы работал данный функционал, буден включен аудит событий (AuditProcess -Enable) и командной строки (CommandLineProcessAudit -Enable) в событиях создания процесса
-#>
+# Create the "Process Creation" сustom view in the Event Viewer to log executed processes and their arguments
+# Создать настраиваемое представление "Создание процесса" в Просмотре событий для журналирования запускаемых процессов и их аргументов
 EventViewerCustomView -Enable
 
 # Remove the "Process Creation" custom view in the Event Viewer to log executed processes and their arguments (default value)
@@ -1132,6 +1113,23 @@ SaveZoneInformation -Disable
 # Disable Windows Sandbox (default value)
 # Выключить Windows Sandbox (значение по умолчанию)
 # WindowsSandbox -Disable
+
+<#
+	Enable DNS-over-HTTPS for IPv4
+	The valid IPv4 addresses: 1.0.0.1, 1.1.1.1, 149.112.112.112, 8.8.4.4, 8.8.8.8, 9.9.9.9
+
+	Включить DNS-over-HTTPS для IPv4
+	Действительные IPv4-адреса: 1.0.0.1, 1.1.1.1, 149.112.112.112, 8.8.4.4, 8.8.8.8, 9.9.9.9
+#>
+DNSoverHTTPS -Enable -PrimaryDNS 1.0.0.1 -SecondaryDNS 1.1.1.1
+
+# Disable DNS-over-HTTPS for IPv4 (default value)
+# Выключить DNS-over-HTTPS для IPv4 (значение по умолчанию)
+# DNSoverHTTPS -Disable
+
+# Enable DNS-over-HTTPS via Comss.one DNS server. Applicable for Russia only
+# Включить DNS-over-HTTPS для IPv4 через DNS-сервер Comss.one. Применимо только для России
+# DNSoverHTTPS -ComssOneDNS
 #endregion Microsoft Defender & Security
 
 #region Context menu
@@ -1150,14 +1148,6 @@ CABInstallContext -Show
 # Hide the "Install" item from the Cabinet (.cab) filenames extensions context menu (default value)
 # Скрыть пункт "Установить" из контекстного меню .cab архивов (значение по умолчанию)
 # CABInstallContext -Hide
-
-# Show the "Run as different user" item to the .exe filename extensions context menu
-# Отобразить пункт "Запуск от имени другого пользователя" в контекстное меню .exe файлов
-RunAsDifferentUserContext -Show
-
-# Hide the "Run as different user" item from the .exe filename extensions context menu (default value)
-# Скрыть пункт "Запуск от имени другого пользователя" из контекстное меню .exe файлов (значение по умолчанию)
-# RunAsDifferentUserContext -Hide
 
 # Hide the "Cast to Device" item from the media files and folders context menu
 # Скрыть пункт "Передать на устройство" из контекстного меню медиа-файлов и папок

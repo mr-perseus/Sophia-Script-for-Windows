@@ -5,6 +5,174 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## 5.18.9 | 6.6.9 — 16.08.2024
+
+* Added function `DNS-over-HTTPS for IPv4` for Windows 10
+  * `DNSoverHTTPS -Enable -PrimaryDNS 1.0.0.1 -SecondaryDNS 1.1.1.1`
+  * `DNSoverHTTPS -ComssOneDNS` to use [COMSS.ONE'](https://www.comss.ru) DNS. Applicable for Russia only.
+  * The valid IPv4 addresses: 1.0.0.1, 1.1.1.1, 149.112.112.112, 8.8.4.4, 8.8.8.8, 9.9.9.9
+* Added `TaskbarEndTask` function to add `End task in taskbar by right click`. Applicable for `Windows 11` only.
+* Simplify a little bit all Scheduled Tasks related function.
+  * You may update them by using `. .\Functions` module. Nothing new.
+* Expanded harmful tweakers by adding [xd-AntiSpy](https://github.com/builtbybel/xd-AntiSpy) for letting users remove system UWP components to break Windows in the end (along side with [Winpilot](https://github.com/builtbybel/Winpilot). You're welcome again. Bravo! 👏
+* Improved `RKNBypass` function. Now all browsers will know about a new proxy server isntantly by using [InternetSetOption](https://learn.microsoft.com/en-us/windows/win32/api/wininet/nf-wininet-internetsetoptiona) API.
+* `TaskbarWidgets`' function future is up in the air due to Microsoft has blocked access for editing TaskbarDa key in KB5041585, so technically the function doesn't work throwing `Attempted to perform an unauthorized operation.`
+* Small improvements;
+* Minor changes.
+
+## 5.18.8 | 6.6.8 — 06.07.2024
+
+* Removed `RestoreUWPApps`
+  * It doesn't work at all anymore.
+* Removed `TempFolder` as it makes more harm than good;
+* Fixed `OneDrive -Install -AllUsers` and `Install-WSL` functions;
+* Improved all three scheduled tasks related functions;
+* Improved `WindowsScriptHost -Disable`
+  * Now it checks whether scheduled tasks were created. If so, the function will be skipped to due to they rely on VBS scripts execution.
+* Fixed typos;
+* Minor changes;
+* Thanks to Kudzor.
+
+## 5.18.7 | 6.6.7 — 12.06.2024
+
+* Fixed `CleanupTask -Register` function not working due to a typo;
+  * Please re-create it via invoking `. .\Functions.ps1` (with a dot at the beginning) method.
+* Removed `CommandLineProcessAudit` and `Install-WSA` as WSA support is deprecated;
+* Improved `EventViewerCustomView -Disable` function;
+* Fixed typos;
+* Minor changes;
+* Thanks to @lowl1f3.
+
+### Wrapper 2.7.1
+
+Closed #576
+
+## 5.18.6 | 6.6.6 — 28.05.2024
+
+* Removed `Windows10ContextMenu` (as this was a strange function to make Windows 11 looks like an old OS), `AuditProcess` (as `CommandLineProcessAudit -Enable` contains the same functionality), `BrowsingHistory`  functions for `Windows 11`;
+* Added `StartRecommendationsTips` & `StartAccountNotifications` functions to `Show recommendations for tips, shortcuts, new apps, and more in the Start menu` and `Show Microsoft account-related notifications on Start Menu in the Start menu` respectively;
+* `DefenderSandbox` functions re-added for `Windows 11`;
+* Added `AtlasOS`, which for some reason positions itself as a replacement for Windows (!!!), as a harmful tweaker from another scammers;
+* Other improvements.
+
+> [!IMPORTANT]
+> ![image](https://github.com/farag2/Sophia-Script-for-Windows/assets/10544660/26b8f211-4d5b-4f30-9c35-1944a7edfacc)
+> Happy 6.6.6 version!
+
+## 5.18.5 | 6.6.5 — 14.04.2024
+
+* Removed `ShareContext` & `UnpinAllStartApps` functions for `Windows 11`;
+  * Start icon positions are stored in a binary obfuscated JSON file that changes with every update. `$env:LOCALAPPDATA\Packages\Microsoft.Windows.StartMenuExperienceHost_cw5n1h2txyewy\LocalState\start2.bin`, and it's changed with every update;
+  * Take a look at https://gist.github.com/rad1ke/d8c4121931633eca04ca625d09ff1a11#file-windows-11-setup-ps1-L42 if you're interested in the function.
+* Fixed `Cursors` function;
+  * Please re-run it by using `. .\Functions.ps1` module
+* Added a warning for `Set-Association` function: `.pdf` and `http/https` protocols will be skipped;
+  * Microsoft has blocked write access to UserChoice key for .pdf extention and http/https protocols with KB5034765 and KB5034763 for Windows 11 and Windows 10 respectively.
+* `RKNBypass` updated;
+  * Changed URL to `https://p.thenewone.lol:8443/proxy.pac`. Applicable for Russia only.
+* Fixed numerous typos.
+
+## 5.18.4 | 6.6.4 — 07.04.2024
+
+* Fixed script not checking version correctly;
+* Script-wide improved compiling .NET code compatibility when a username has the first capital letter`;
+  * https://github.com/PowerShell/PowerShell/issues/21070
+* Fixed `Cursors` function not extracting files from archives using `%SystemRoot%\System32\tar.exe` when a username has the first capital letter`;
+  * https://github.com/PowerShell/PowerShell/issues/21070
+* Fixed `Set-UserShellFolderLocation -Root` function not checking drives correctly what results in skipping the whole function;
+* Minor changes.
+
+### Wrapper 2.7.0
+
+* Updated colors for each theme and coded more correctly according to industry standards;
+* Clean up code.
+
+## 5.18.3 | 6.6.3 — 01.04.2024
+
+* Removed `RunAsDifferentUserContext`, `EditWithPhotosContext`, `ImagesEditContext` for Windows 10 as unnecessary ones.
+* Fixed `UserFolders` function;
+  * Fixes #561.
+* Removed `NET7x64` argument from `InstallDotNetRuntimes` function as .NET 7 will have EOF status in May;
+* Fixed and improved `Cursors` function;
+* Now it's possible to create any scheduled task even computer name is equal to user name (what's prohibited in Windows);
+  * Removes warning that Task Scheduler is removed or broken;
+  * Fixes #561.
+* Minor changes.
+
+Thanks to @lowl1f3 for bug reporting.
+
+### Wrapper 2.6.20
+
+* Code refactoring
+  * Proper variable naming, removed experimental code, removed extras, added regions.
+
+## 5.18.2 | 6.6.2 — 06.03.2024
+
+* Initial checks simplified;
+  * Script now relies on parsing <https://github.com/farag2/Sophia-Script-for-Windows/blob/master/supported_windows_builds.json> to check the actual supported Windows build;
+    * If there's no Internet connection established, the check will be skipped.
+  * In anticipation of providing an ability to remove Edge from Microsoft, the Edge check was removed.
+* `InstallDotNetRuntimes` function has now only `NET6x64, NET7x64, NET8x64` supported arguments
+* Minor changes.
+
+### Wrapper 2.6.18
+
+* Fixed Set-Association;
+  * Can include spaces in filepath.
+* More organized output console 2.6.18.
+
+## 5.18.1 | 6.6.1 — 03.03.2024
+
+* Code refactoring;
+* Improved initial checks;
+* Fixed small bug when explorer process didn't load back after restating in `OneDrive -Uninstall` function;
+* Closed #554;
+* Added `SearchHighlights` function to show or hide hightlights in the search on the taskbar;
+* Fixed bug in all creating scheduled tasks where a wrong encoding were used that cased mojibake;
+  * You may re-create them if you've encountered such bug.
+  * Thanks to @lowl1f3.
+* Fixed typos;
+* Minor changes.
+
+### Wrapper 2.6.17
+
+* Added `InstallDotNetRuntimes -Runtimes` function to install latest `.NET 6, 7, 8 frameworks`
+* Fixed bug crash when searching in Windows 10 src.
+
+## 5.18.0 | 6.6.0 — 02.02.2024
+
+* Improved initial checks;
+* Extended harmful tweakers list checks;
+* Improved HEVC package downloading function;
+* Added `RegistryBackup` function to back up the system registry to %SystemRoot%\System32\config\RegBack folder when PC restarts and create a RegIdleBackup in the Task Scheduler task to manage subsequent backups;
+* Fixed typos;
+* Minor changes.
+
+### Wrapper 2.6.15
+
+* Added search function
+
+![изображение](https://github.com/farag2/Sophia-Script-for-Windows/assets/10544660/25a74d12-75ff-42f4-bbc4-b6157563ed41)
+
+![изображение](https://github.com/farag2/Sophia-Script-for-Windows/assets/10544660/19a94e40-9656-454a-9acf-44f3d44931ed)
+
+## 5.17.9 | 6.5.9 — 26.12.2023
+
+* Fixed bug in `HEVC` function that prevented package downloading;
+* Removed `WaitNetworkStartup` function as unnecessary one;
+* Renamed `TaskbarChat` function into `PreventTeamsInstallation`;
+* Fixed typos;
+* Minor changes.
+
+### Wrapper 2.6.13
+
+* Added compatibility with the latest `Sophia Script` version;
+* Bug fix.
+
+> **Note**: Please note that Wrapper doesn't have all functions as CLI `Sophia Script` provides. If you want to apply all functions, you need to configure `Sophia.ps1` file.
+
+With best wishes for a happy New Year from `Team Sophia` ![img](https://forum.ru-board.com/board/s/deds.gif)
+
 ## 5.17.8 | 6.5.8 — 08.12.2023
 
 * The `InitialActions` function simplified;

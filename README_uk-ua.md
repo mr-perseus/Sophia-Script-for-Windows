@@ -11,22 +11,17 @@
 <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Windows_10_Logo.svg" height="30px"/> &emsp; <img src="https://upload.wikimedia.org/wikipedia/commons/e/e6/Windows_11_logo.svg" height="30px"/>
 
 <p align="left">
-  <a href="https://github.com/farag2/Sophia-Script-for-Windows/actions"><img src="https://img.shields.io/github/actions/workflow/status/farag2/Sophia-Script-for-Windows/Sophia.yml?label=GitHub%20Actions&logo=GitHub"></a>
-  <img src="https://img.shields.io/badge/PowerShell%205.1%20&%207.3-Ready-blue.svg?color=5391FE&style=flat&logo=powershell">
-
-  <a href="https://github.com/farag2/Sophia-Script-for-Windows/releases"><img src="https://img.shields.io/github/v/release/farag2/Sophia-Script-for-Windows">
-  </a><a href="https://github.com/farag2/Sophia-Script-for-Windows"><img src="https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/farag2/9852d6b9569a91bf69ceba8a94cc97f4/raw/SophiaScript.json"></a>
-
   <a href="https://github.com/farag2/Sophia-Script-for-Windows/releases"><img src="https://img.shields.io/github/downloads/farag2/Sophia-Script-for-Windows/total?label=downloads%20%28since%20May%202020%29"></a>
   <a href="https://community.chocolatey.org/packages/sophia"><img src="https://img.shields.io/chocolatey/dt/sophia?color=blue&label=chocolatey%20package"></a>
 
-  <a href="https://twitter.com/tea_head_"><img src="https://img.shields.io/badge/Logo%20by-teahead-blue?style=flat&logo=Twitter"></a>
+  <a href="https://twitter.com/tea_head_"><img src="https://img.shields.io/badge/Logo%20by-teahead-blue?style=flat&logo=X"></a>
   <img src="https://img.shields.io/badge/Made%20with-149ce2.svg?color=149ce2"><img src="https://raw.githubusercontent.com/farag2/Sophia-Script-for-Windows/master/img/heart.svg" height="17px"/>
+  <a href="https://github.com/farag2/Sophia-Script-for-Windows"><img src="https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/farag2/9852d6b9569a91bf69ceba8a94cc97f4/raw/SophiaScript.json"></a>
 
   [telegram-news-badge]: https://img.shields.io/badge/Sophia%20News-Telegram-blue?style=flat&logo=Telegram
   [telegram-news]: https://t.me/sophianews
   [telegram-group]: https://t.me/sophia_chat
-  [telegram-group-badge]: https://img.shields.io/badge/Sophia%20Chat-Telegram-blue?style=flat&logo=Telegram
+  [telegram-group-badge]: https://img.shields.io/endpoint?color=neon&label=Sophia%20Chat&style=flat&url=https%3A%2F%2Ftg.sumanjay.workers.dev%2Fsophia_chat
 
   [![Telegram][telegram-news-badge]][telegram-news]
   [![Telegram][telegram-group-badge]][telegram-group]
@@ -34,6 +29,7 @@
   [discord-news-badge]: https://discordapp.com/api/guilds/1006179075263561779/widget.png?style=shield
   [discord-link]: https://discord.gg/sSryhaEv79
   [![Discord][discord-news-badge]][discord-link]
+  <a href="https://github.com/farag2/Sophia-Script-for-Windows/actions"><img src="https://img.shields.io/github/actions/workflow/status/farag2/Sophia-Script-for-Windows/Sophia.yml?label=GitHub%20Actions&logo=GitHub"></a>
 </p>
 
 <p align="left">
@@ -64,7 +60,7 @@
 
 ***
 
-<a href="https://github.com/farag2/Sophia-Script-for-Windows/releases/latest"><img src="https://raw.githubusercontent.com/farag2/Sophia-Script-for-Windows/master/img/SSdownloadbutton.svg" width=220px height=55px></a>
+<a href="https://github.com/farag2/Sophia-Script-for-Windows/releases/latest"><img src="https://raw.githubusercontent.com/farag2/Sophia-Script-for-Windows/master/img/get-it-on-github.png" width="50%" height="50%"></a>
 
 ***
 
@@ -93,36 +89,37 @@
 
 ![Typing SVG](https://readme-typing-svg.herokuapp.com?font=Fira+Code&size30&pause=1000&width=435&lines=Made+with+%E2%9D%A4%EF%B8%8F+of+Windows%C2%AE)
 
-> **Note**: Sophia Script для Windows - найбільший модуль PowerShell на `GitHub` для тонкого налаштування і автоматизації рутинних завдань в `Windows 10` і `Windows 11`. Він пропонує сучасні UI/UX, більше 130 різних функцій і показує, як можна налаштувати Windows, не ламаючи функціонал.
+> [!IMPORTANT]
+> Sophia Script для Windows - найбільший модуль PowerShell на `GitHub` для тонкого налаштування і автоматизації рутинних завдань в `Windows 10` і `Windows 11`. Він пропонує сучасні UI/UX, більше 130 різних функцій і показує, як можна налаштувати Windows, не ламаючи функціонал.
 
 ## Перед запуском
 
-> **Note**: У зв'язку з тим, що скрипт містить більше **150** функцій з різними аргументами, необхідно уважно прочитати весь **Sophia.ps1** і **закоментувати/розкоментувати** ті функції, які Ви бажаєте/не бажаєте, щоб виконувалися (без необхідності редагування коду), або скористатися [Wrapper](https://github.com/farag2/Sophia-Script-for-Windows#davids-sophia-script-wrapper). Кожна зміна у файлі налаштувань має відповідну функцію для **відновлення налаштувань за замовчуванням**. Запускати скрипт найкраще на свіжій установці, оскільки запуск на **неправильно** налаштованій системі може призвести до виникнення помилок.
+> [!CAUTION]
+> У зв'язку з тим, що скрипт містить більше **150** функцій з різними аргументами, необхідно уважно прочитати весь **Sophia.ps1** і **закоментувати/розкоментувати** ті функції, які Ви бажаєте/не бажаєте, щоб виконувалися (без необхідності редагування коду), або скористатися [Wrapper](https://github.com/farag2/Sophia-Script-for-Windows#davids-sophia-script-wrapper). Кожна зміна у файлі налаштувань має відповідну функцію для **відновлення налаштувань за замовчуванням**. Запускати скрипт найкраще на свіжій установці, оскільки запуск на **неправильно** налаштованій системі може призвести до виникнення помилок.
 
 ## Пожертвування
 
-<a href="https://yoomoney.ru/to/4100116615568835"><img src="https://yoomoney.ru/i/shop/iomoney_logo_color_example.png" width=220px height=46px align="left">
 </a><a href="https://ko-fi.com/farag"><img src="https://www.ko-fi.com/img/githubbutton_sm.svg" width=220px height=46px align="left"></a>
-
-| ![ko-fi](https://img.shields.io/badge/tether-168363?style=for-the-badge&logo=tether&logoColor=white) |
-|:----------------------------------------------------------------------------------------------------:|
-|                                         USDT (TRC20)                                                 |
-|                             `TQtMjdocUWbKAeg1kLtB4ApjAVHt1v8Rtf`                                     |
 
 ## Системні вимоги
 
-|                Версія                | Маркетингова назва  |   Збіркa    | Архітектура |       Видання       |
-|:-------------------------------------|--------------------:|:-----------:|:-----------:|:-------------------:|
-| Windows 11 Insider Preview 24H2      | 2024 Update         | 22509+      |             | Home/Pro/Enterprise |
-| Windows 11 23H2                      | 2023 Update         | 22631.2792+ |             | Home/Pro/Enterprise |
-| Windows 10 22H2                      | 2022 Update         | 19045.3758+ |     x64     | Home/Pro/Enterprise |
-| Windows 10 21H2 Enterprise LTSC 2021 | October 2021 Update | 19044.3693+ |     x64     | Enterprise          |
-| Windows 10 1809 Enterprise LTSC 2019 | October 2018 Update | 17763.5122+ |     x64     | Enterprise          |
+[Windows-10]: https://support.microsoft.com/topic/windows-10-update-history-8127c2c6-6edf-4fdf-8b9f-0f7be1ef3562
+[Windows-10-LTSC-2019]: https://support.microsoft.com/topic/windows-10-and-windows-server-2019-update-history-725fc2e1-4443-6831-a5ca-51ff5cbcb059
+[Windows-10-LTSC-2021]: https://support.microsoft.com/topic/windows-10-update-history-857b8ccb-71e4-49e5-b3f6-7073197d98fb
+[Windows-11]: https://support.microsoft.com/topic/windows-11-version-23h2-update-history-59875222-b990-4bd9-932f-91a5954de434
 
-### Увага
+|                Версія                    | Маркетингова назва  |                           Збіркa          |       Видання       |
+|:-----------------------------------------|--------------------:|:-----------------------------------------:|:-------------------:|
+| Windows 11 Insider Preview 24H2          | 2024 Update         | 22509+                                    | Home/Pro/Enterprise |
+| Windows 11 23H2                          | 2023 Update         | [Остання стабільна][Windows-11]           | Home/Pro/Enterprise |
+| Windows 10 x64 22H2                      | 2022 Update         | [Остання стабільна][Windows-10]           | Home/Pro/Enterprise |
+| Windows 10 x64 21H2 Enterprise LTSC 2021 | October 2021 Update | [Остання стабільна][Windows-10-LTSC-2021] | Enterprise          |
+| Windows 10 x64 1809 Enterprise LTSC 2019 | October 2018 Update | [Остання стабільна][Windows-10-LTSC-2019] | Enterprise          |
 
-* Запуск додатку можливий лише якщо в системі присутній один користувач з правами адміністратора;
-* 🔥🔥🔥 `SophiApp` може не працювати на "самопальних" збірках Windows. Особливо, якщо збірка була створена так, що в ній спеціально було зламано Microsoft Defender і вимкнено телеметрію, вирізавши системні компоненти.
+> [!WARNING]
+> Запуск додатку можливий лише якщо в системі присутній один користувач з правами адміністратора;
+> 
+> `SophiApp` може не працювати на "самопальних" збірках Windows. Особливо, якщо збірка була створена так, що в ній спеціально було зламано Microsoft Defender і вимкнено телеметрію, вирізавши системні компоненти.
 
 ## Ключові особливості
 
@@ -306,7 +303,7 @@ iwr script.sophia.team -useb | iex
 * [Neowin: Tech News, Reviews & Betas](https://www.neowin.net/news/this-windows-10-setup-script-lets-you-fine-tune-around-150-functions-for-new-installs)
 * [Comss.ru](https://www.comss.ru/page.php?id=8019)
 * [Habr](https://habr.com/company/skillfactory/blog/553800)
-* [Deskmodder.d](https://www.deskmodder.de/blog/2021/08/07/sophia-script-for-windows-jetzt-fuer-windows-11-und-10/)
+* [Deskmodder.de](https://www.deskmodder.de/blog/2021/08/07/sophia-script-for-windows-jetzt-fuer-windows-11-und-10/)
 * [PCsoleil Informatique](https://www.pcsoleil.fr/successeur-de-win10-initial-setup-script-sophia-script-comment-lutiliser/)
 * [Reddit (архівовано)](https://www.reddit.com/r/PowerShell/comments/go2n5v/powershell_script_setup_windows_10/)
   * Написати в [особисті](https://www.reddit.com/user/farag2/)
