@@ -3,6 +3,7 @@
     "Region": "Protection",
     "Control": "cmb",
     "Required": "true",
+    "RequiredIndex": "0",
     "Function": "InitialActions",
     "Arg": {
       "Zero": {
@@ -282,22 +283,6 @@
     "WindowsDefault": "One"
   },
   {
-    "Region": "Privacy & Telemetry",
-    "Control": "cmb",
-    "Required": "false",
-    "Function": "StartRecommendationsTips",
-    "Arg": {
-      "Zero": {
-        "Tag": "Hide"
-      },
-      "One": {
-        "Tag": "Show"
-      }
-    },
-    "Preset": "Zero",
-    "WindowsDefault": "One"
-  },
-  {
     "Region": "UI & Personalization",
     "Control": "cmb",
     "Required": "false",
@@ -477,22 +462,6 @@
     "Region": "UI & Personalization",
     "Control": "cmb",
     "Required": "false",
-    "Function": "3DObjects",
-    "Arg": {
-      "Zero": {
-        "Tag": "Hide"
-      },
-      "One": {
-        "Tag": "Show"
-      }
-    },
-    "Preset": "Zero",
-    "WindowsDefault": "One"
-  },
-  {
-    "Region": "UI & Personalization",
-    "Control": "cmb",
-    "Required": "false",
     "Function": "QuickAccessRecentFiles",
     "Arg": {
       "Zero": {
@@ -528,13 +497,16 @@
     "Function": "TaskbarSearch",
     "Arg": {
       "Zero": {
-        "Tag": "Hide"
+        "Tag": "Hide",
+		"Opposite": "Two"
       },
       "One": {
-        "Tag": "SearchIcon"
+        "Tag": "SearchIcon",
+		"Opposite": "Zero"
       },
       "Two": {
-        "Tag": "SearchBox"
+        "Tag": "SearchBox",
+		"Opposite": "Zero"
       }
     },
     "Preset": "Zero",
@@ -576,22 +548,6 @@
     "Region": "UI & Personalization",
     "Control": "cmb",
     "Required": "false",
-    "Function": "CopilotButton",
-    "Arg": {
-      "Zero": {
-        "Tag": "Hide"
-      },
-      "One": {
-        "Tag": "Show"
-      }
-    },
-    "Preset": "Zero",
-    "WindowsDefault": "One"
-  },
-  {
-    "Region": "UI & Personalization",
-    "Control": "cmb",
-    "Required": "false",
     "Function": "TaskViewButton",
     "Arg": {
       "Zero": {
@@ -615,22 +571,6 @@
       },
       "One": {
         "Tag": "Enable"
-      }
-    },
-    "Preset": "Zero",
-    "WindowsDefault": "One"
-  },
-  {
-    "Region": "UI & Personalization",
-    "Control": "cmb",
-    "Required": "false",
-    "Function": "PeopleTaskbar",
-    "Arg": {
-      "Zero": {
-        "Tag": "Hide"
-      },
-      "One": {
-        "Tag": "Show"
       }
     },
     "Preset": "Zero",
@@ -702,6 +642,28 @@
   },
   {
     "Region": "UI & Personalization",
+    "Control": "cmb",
+    "Required": "false",
+    "Function": "TaskbarCombine",
+    "Arg": {
+      "Zero": {
+        "Tag": "Always",
+		"Opposite": "Two"
+      },
+      "One": {
+        "Tag": "Full",
+		"Opposite": "Two"
+      },
+      "Two": {
+        "Tag": "Never",
+		"Opposite": "Zero"
+      }
+    },
+    "Preset": "Zero",
+    "WindowsDefault": "Zero"
+  },
+  {
+    "Region": "UI & Personalization",
     "Control": "chk",
     "Required": "false",
     "Function": "UnpinTaskbarShortcuts -Shortcuts",
@@ -726,13 +688,16 @@
     "Function": "ControlPanelView",
     "Arg": {
       "Zero": {
-        "Tag": "LargeIcons"
+        "Tag": "LargeIcons",
+		"Opposite": "One"
       },
       "One": {
-        "Tag": "SmallIcons"
+        "Tag": "SmallIcons",
+		"Opposite": "Zero"
       },
       "Two": {
-        "Tag": "Category"
+        "Tag": "Category",
+		"Opposite": "Two"
       }
     },
     "Preset": "Zero",
@@ -905,13 +870,16 @@
     "Function": "Cursors",
     "Arg": {
       "Zero": {
-        "Tag": "Default"
+        "Tag": "Default",
+		"Opposite": "Zero"
       },
       "One": {
-        "Tag": "Dark"
+        "Tag": "Dark",
+		"Opposite": "Two"
       },
       "Two": {
-        "Tag": "Light"
+        "Tag": "Light",
+		"Opposite": "One"
       }
     },
     "Preset": "One",
@@ -951,25 +919,108 @@
   },
   {
     "Region": "UI & Personalization",
-    "Control": "cmb",
+    "Control": "cmbs",
     "Required": "false",
     "Function": "UserFolders",
+    "Arg2Width": "110",
+    "Arg2ArgWidth": "100",
     "Arg": {
       "Zero": {
-        "Tag": "Show"
+        "Tag": "Hide"
       },
       "One": {
-        "Tag": "Hide"
+        "Tag": "Show"
+      }
+    },
+    "Arg2": {
+      "Zero": {
+        "Function": "ThreeDObjects",
+        "Arg": {
+          "Zero": {
+            "Tag": "Hide"
+          },
+          "One": {
+            "Tag": "Show"
+          }
+        }
+      },
+      "One": {
+        "Function": "Desktop",
+        "Arg": {
+          "Zero": {
+            "Tag": "Hide"
+          },
+          "One": {
+            "Tag": "Show"
+          }
+        }
+      },
+      "Two": {
+        "Function": "Documents",
+        "Arg": {
+          "Zero": {
+            "Tag": "Hide"
+          },
+          "One": {
+            "Tag": "Show"
+          }
+        }
+      },
+      "Three": {
+        "Function": "Downloads",
+        "Arg": {
+          "Zero": {
+            "Tag": "Hide"
+          },
+          "One": {
+            "Tag": "Show"
+          }
+        }
+      },
+      "Four": {
+        "Function": "Music",
+        "Arg": {
+          "Zero": {
+            "Tag": "Hide"
+          },
+          "One": {
+            "Tag": "Show"
+          }
+        }
+      },
+      "Five": {
+        "Function": "Pictures",
+        "Arg": {
+          "Zero": {
+            "Tag": "Hide"
+          },
+          "One": {
+            "Tag": "Show"
+          }
+        }
+      },
+      "Six": {
+        "Function": "Videos",
+        "Arg": {
+          "Zero": {
+            "Tag": "Hide"
+          },
+          "One": {
+            "Tag": "Show"
+          }
+        }
       }
     },
     "Preset": "Zero",
-    "WindowsDefault": "Zero"
+    "WindowsDefault": "One"
   },
   {
     "Region": "OneDrive",
-    "Control": "cmb",
+    "Control": "cmbchkalter",
     "Required": "false",
     "Function": "OneDrive",
+    "Function2": "OneDrive -AllUsers",
+    "Function2Selects": "1",
     "Arg": {
       "Zero": {
         "Tag": "Uninstall"
@@ -979,19 +1030,6 @@
       }
     },
     "Preset": "Zero",
-    "WindowsDefault": ""
-  },
-  {
-    "Region": "OneDrive",
-    "Control": "chk",
-    "Required": "false",
-    "Function": "OneDrive -AllUsers",
-    "Arg": {
-      "Zero": {
-        "Tag": ""
-      }
-    },
-    "Preset": "",
     "WindowsDefault": ""
   },
   {
@@ -1009,38 +1047,6 @@
     },
     "Preset": "Zero",
     "WindowsDefault": ""
-  },
-  {
-    "Region": "System",
-    "Control": "cmb",
-    "Required": "false",
-    "Function": "StorageSenseFrequency",
-    "Arg": {
-      "Zero": {
-        "Tag": "Month"
-      },
-      "One": {
-        "Tag": "Default"
-      }
-    },
-    "Preset": "Zero",
-    "WindowsDefault": ""
-  },
-  {
-    "Region": "System",
-    "Control": "cmb",
-    "Required": "false",
-    "Function": "StorageSenseTempFiles",
-    "Arg": {
-      "Zero": {
-        "Tag": "Enable"
-      },
-      "One": {
-        "Tag": "Disable"
-      }
-    },
-    "Preset": "Zero",
-    "WindowsDefault": "Zero"
   },
   {
     "Region": "System",
@@ -1101,22 +1107,6 @@
       },
       "One": {
         "Tag": "Default"
-      }
-    },
-    "Preset": "Zero",
-    "WindowsDefault": "One"
-  },
-  {
-    "Region": "System",
-    "Control": "cmb",
-    "Required": "false",
-    "Function": "MappedDrivesAppElevatedAccess",
-    "Arg": {
-      "Zero": {
-        "Tag": "Enable"
-      },
-      "One": {
-        "Tag": "Disable"
       }
     },
     "Preset": "Zero",
@@ -1302,25 +1292,6 @@
     "Region": "System",
     "Control": "cmb",
     "Required": "false",
-    "Function": "IPv6Component",
-    "Arg": {
-      "Zero": {
-        "Tag": "Disable"
-      },
-      "One": {
-        "Tag": "Enable"
-      },
-      "Two": {
-        "Tag": "PreferIPv4overIPv6"
-      }
-    },
-    "Preset": "One",
-    "WindowsDefault": "One"
-  },
-  {
-    "Region": "System",
-    "Control": "cmb",
-    "Required": "false",
     "Function": "InputMethod",
     "Arg": {
       "Zero": {
@@ -1340,13 +1311,16 @@
     "Function": "Set-UserShellFolderLocation",
     "Arg": {
       "Zero": {
-        "Tag": "Root"
+        "Tag": "Root",
+		"Opposite": "Two"
       },
       "One": {
-        "Tag": "Custom"
+        "Tag": "Custom",
+		"Opposite": "Two"
       },
       "Two": {
-        "Tag": "Default"
+        "Tag": "Default",
+		"Opposite": "One"
       }
     },
     "Preset": "Zero",
@@ -1562,12 +1536,30 @@
   },
   {
     "Region": "System",
-    "Control": "chk",
+    "Control": "tboxtboxtbox",
     "Required": "false",
     "Function": "Set-Association",
+    "Width": "170",
+    "WidthMinus": "35",
+    "MarginMinus": "5",
+    "WidthPlus": "35",
+    "MarginPlus": "5",
+    "WidthOpen": "75",
+    "WidthSave": "100",
+    "MarginSave": "225",
     "Arg": {
       "Zero": {
-        "Tag": ""
+        "Tag": "ProgramPath",
+        "Width": "325"
+      },
+      "One": {
+        "Tag": "Extension",
+        "Width": "85"
+      },
+      "Two": {
+        "Tag": "Icon",
+        "Width": "250",
+        "Number": "1000"
       }
     },
     "Preset": "",
@@ -1616,10 +1608,13 @@
     "Region": "System",
     "Control": "chk",
     "Required": "false",
-    "Function": "InstallVCRedist",
+    "Function": "Install-VCRedist -Redistributables",
     "Arg": {
       "Zero": {
-        "Tag": ""
+        "Tag": "2015_2022_x86"
+      },
+      "One": {
+        "Tag": "2015_2022_x64"
       }
     },
     "Preset": "",
@@ -1629,13 +1624,13 @@
     "Region": "System",
     "Control": "chk",
     "Required": "false",
-    "Function": "InstallDotNetRuntimes -Runtimes",
+    "Function": "Install-DotNetRuntimes -Runtimes",
     "Arg": {
       "Zero": {
-        "Tag": "NET6x64"
+        "Tag": "NET8x64"
       },
       "One": {
-        "Tag": "NET8x64"
+        "Tag": "NET9x64"
       }
     },
     "Preset": "",
@@ -1659,7 +1654,7 @@
   },
   {
     "Region": "System",
-    "Control": "cmb",
+    "Control": "cmbchk",
     "Required": "false",
     "Function": "PreventEdgeShortcutCreation",
     "Arg": {
@@ -1670,24 +1665,28 @@
         "Tag": "Disable"
       }
     },
-    "Preset": "Zero",
-    "WindowsDefault": "One"
-  },
-  {
-    "Region": "System",
-    "Control": "cmb",
-    "Required": "false",
-    "Function": "SATADrivesRemovableMedia",
-    "Arg": {
+    "Arg2": {
       "Zero": {
-        "Tag": "Disable"
+        "Tag": "Stable",
+        "Width": "75"
       },
       "One": {
-        "Tag": "Default"
+        "Tag": "Beta",
+        "Width": "65"
+      },
+      "Two": {
+        "Tag": "Dev",
+        "Width": "62"
+      },
+      "Three": {
+        "Tag": "Canary",
+        "Width": "80"
       }
     },
     "Preset": "Zero",
-    "WindowsDefault": "One"
+    "WindowsDefault": "One",
+    "Preset2": "0123",
+    "WindowsDefault2": ""
   },
   {
     "Region": "System",
@@ -1784,28 +1783,17 @@
   },
   {
     "Region": "UWP apps",
-    "Control": "chk",
+    "Control": "chkchkalter",
     "Required": "false",
+    "Separate": "true",
     "Function": "UninstallUWPApps",
+    "Function2": "UninstallUWPApps -ForAllUsers",
     "Arg": {
       "Zero": {
         "Tag": ""
       }
     },
     "Preset": "Zero",
-    "WindowsDefault": ""
-  },
-  {
-    "Region": "UWP apps",
-    "Control": "chk",
-    "Required": "false",
-    "Function": "UninstallUWPApps -ForAllUsers",
-    "Arg": {
-      "Zero": {
-        "Tag": ""
-      }
-    },
-    "Preset": "",
     "WindowsDefault": ""
   },
   {
@@ -1887,19 +1875,6 @@
     },
     "Preset": "Zero",
     "WindowsDefault": "One"
-  },
-  {
-    "Region": "Gaming",
-    "Control": "chk",
-    "Required": "false",
-    "Function": "Set-AppGraphicsPerformance",
-    "Arg": {
-      "Zero": {
-        "Tag": ""
-      }
-    },
-    "Preset": "Zero",
-    "WindowsDefault": ""
   },
   {
     "Region": "Gaming",
@@ -2153,9 +2128,13 @@
   },
   {
     "Region": "Microsoft Defender & Security",
-    "Control": "cmb",
+    "Control": "cmbcmbcmb",
     "Required": "false",
     "Function": "DNSoverHTTPS",
+    "Key": "SYSTEM\\CurrentControlSet\\Services\\Dnscache\\Parameters\\DohWellKnownServers",
+    "PrefixArg2": "PrimaryDNS",
+    "PrefixArg3": "SecondaryDNS",
+    "Arg2_3_Width": "145",
     "Arg": {
       "Zero": {
         "Tag": "Enable"
@@ -2164,8 +2143,52 @@
         "Tag": "Disable"
       }
     },
+    "Arg2": {
+      "Zero": {
+        "Tag": "1.0.0.1"
+      },
+      "One": {
+        "Tag": "1.1.1.1"
+      },
+      "Two": {
+        "Tag": "149.112.112.112"
+      },
+      "Three": {
+        "Tag": "8.8.4.4"
+      },
+      "Four": {
+        "Tag": "8.8.8.8"
+      },
+      "Five": {
+        "Tag": "9.9.9.9"
+      }
+    },
+    "Arg3": {
+      "Zero": {
+        "Tag": "1.0.0.1"
+      },
+      "One": {
+        "Tag": "1.1.1.1"
+      },
+      "Two": {
+        "Tag": "149.112.112.112"
+      },
+      "Three": {
+        "Tag": "8.8.4.4"
+      },
+      "Four": {
+        "Tag": "8.8.8.8"
+      },
+      "Five": {
+        "Tag": "9.9.9.9"
+      }
+    },
     "Preset": "Zero",
-    "WindowsDefault": "One"
+    "WindowsDefault": "One",
+    "Preset2": "Zero",
+    "WindowsDefault2": "",
+    "Preset3": "One",
+    "WindowsDefault3": ""
   },
   {
     "Region": "Context menu",
@@ -2245,6 +2268,22 @@
       }
     },
     "Preset": "",
+    "WindowsDefault": "One"
+  },
+  {
+    "Region": "Context menu",
+    "Control": "cmb",
+    "Required": "false",
+    "Function": "ImagesEditContext",
+    "Arg": {
+      "Zero": {
+        "Tag": "Hide"
+      },
+      "One": {
+        "Tag": "Show"
+      }
+    },
+    "Preset": "Zero",
     "WindowsDefault": "One"
   },
   {
@@ -2379,7 +2418,7 @@
     "Region": "Update Policies",
     "Control": "chk",
     "Required": "false",
-    "Function": "UpdateLGPEPolicies",
+    "Function": "ScanRegistryPolicies",
     "Arg": {
       "Zero": {
         "Tag": ""

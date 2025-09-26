@@ -5,14 +5,20 @@
       "menuImportExportPreset": "Импорт | экспорт",
       "menuImportPreset": "Импортировать пресет",
       "menuExportPreset": "Экспортировать пресет",
+      "menuAutosave": "Автосохранение",
       "menuPresets": "Пресеты",
       "menuOpposite": "Противоположные значения",
+      "menuOppositeTab": "Противоположная вкладка",
+      "menuOppositeEverything": "Напротив всего",
       "menuClear": "Очистить",
+      "menuClearTab": "Очистить вкладку",
+      "menuClearEverything": "Очистить все",
       "menuTheme": "Тема",
       "menuThemeDark": "Тёмная",
       "menuThemeLight": "Светлая",
       "menuLanguage": "Язык",
-      "menuAbout": "О программе"
+      "menuAbout": "О программе",
+      "menuDonate": "Пожертвовать"
     }
   },
   {
@@ -56,8 +62,10 @@
       "statusBarWindowsDefaultPreset": "Загружен пресет по умолчанию!",
       "statusBarPowerShellScriptCreatedFromSelections": "Скрипт для PowerShell создан из ваших выбранных элементов. Можете запустить и сохранить его.",
       "statusBarPowerShellExport": "Скрипт для PowerShell создан!",
-      "statusBarOpposite": "Выбраны обратные настройки!",
-      "statusBarClear": "Выбранные элементы очищены!",
+      "statusBarOppositeTab": "Для этой вкладки выбраны противоположные значения!",
+      "statusBarOppositeEverything": "Выбраны все противоположные значения!",
+      "statusBarClearTab": "Отмеченные элементы для вкладки очищены!",
+      "statusBarClearEverything": "Все отмеченные элементы очищены!",
       "statusBarDisabled": "Импортируйте пресет, чтобы включить элементы управления.",
       "statusBarCurrentOS": "Текущая ОС"
     }
@@ -67,12 +75,12 @@
     "Options": {
       "messageBoxNewWrapperFound": "Обнаружена новая версия Wrapper.\nОткрыть страницу GitHub?",
       "messageBoxNewSophiaFound": "Обнаружена новая версия Sophia Script.\nОткрыть страницу GitHub?",
+      "messageBoxPS1FileHasToBeInFolder": "Пресет-файлл Sophia.ps1 должен находиться в папке Sophia Script.",
       "messageBoxDoesNotExist": "не существует.",
-      "messageBoxPresetNotComp": "Пресет не совместим!",
+      "messageBoxPresetNotComp": "Пресет несовместим!",
       "messageBoxFilesMissingClose": "Отсутствуют необходимые файлы Sophia Script Wrapper. Программа будет закрыта.",
       "messageBoxConsoleEmpty": "Консоль пуста.\nНажмите кнопку \"Обновить консоль\", чтобы создать скрипт согласно вышему выбору.",
-      "messageBoxPowerShellVersionNotInstalled": "Выбранная вами версия PowerShell не установлена.",
-      "messageBoxMaybeFilesNotUnzippedProperly": "Возможно, файлы не разархивированы должным образом."
+      "messageBoxPowerShellVersionNotInstalled": "Выбранная вами версия PowerShell не установлена."
     }
   },
   {
